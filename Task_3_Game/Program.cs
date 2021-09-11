@@ -8,7 +8,7 @@ namespace Task_3_Game
 		static void Main(string[] args)
 		{
 			Game game = new Game();
-			game.InputMoves();
+			game.InputMoves(args);
 			while (true)
 			{
 				game.CreateRandomMovePc();
@@ -31,7 +31,7 @@ namespace Task_3_Game
 					Environment.Exit(0);
 				}
 				while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-				Console.WriteLine();
+				
 			}
 		}
 	}

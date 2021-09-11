@@ -11,34 +11,22 @@ namespace Task_3_Game.Data
 		private Dictionary<string, string> _menu = new Dictionary<string, string>();
 		private List<string> _movesList = new List<string>();
 
-		public void InputMoves()
-		{
-			Console.Write("Enter moves:");
-			string inputMoves = Console.ReadLine().Trim();
-			string[] moves = inputMoves.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-			bool isUnique = true;
-			do
-			{
-				while(moves.Length < 3 || moves.Length % 2 == 0 || !isUnique)
-				{					
-					PrintErrorMessages();
-					Console.Write("Enter moves:");
-					inputMoves = Console.ReadLine().Trim();
-					moves = inputMoves.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-					isUnique = true;
-				}
-				foreach (var m in moves)
-				{
-					if (_movesList.Contains(m))
-					{
-						_movesList.Clear();
-						isUnique = false;
-						break;
-					}
-					_movesList.Add(m);
-				}
+		public void InputMoves(string[] inputMoves)
+		{	
+			if (inputMoves.Length < 3 || inputMoves.Length % 2 == 0)
+			{					
+				PrintErrorMessages();
+				Environment.Exit(0);
 			}
-			while (!isUnique);
+			foreach (var m in inputMoves)
+			{
+				if (_movesList.Contains(m))
+				{
+					PrintErrorMessages();
+					Environment.Exit(0);					
+				}
+				_movesList.Add(m);
+			}
 			SetMenu(_movesList);
 		}
 
@@ -57,7 +45,7 @@ namespace Task_3_Game.Data
 		public void SetUserMove()
 		{
 			Console.Write("Enter your move:");
-			string inputUserMove = Console.ReadLine();
+			string inputUserMove = Console.ReadLine().Trim();
 			while (!_menu.ContainsKey(inputUserMove))
 			{
 				Console.WriteLine("You entered incorrect move. Try agan");
@@ -120,7 +108,6 @@ namespace Task_3_Game.Data
 		{
 			Console.WriteLine("Error. The number of entered moves must be at least 3, odd and unique");
 			Console.WriteLine("For example: Rock Scissors Paper or Rock Scissors Paper Lizard Spock or 1 2 3 4 5 6 7 8 9");
-			Console.WriteLine();
 		}
 	}
 }
