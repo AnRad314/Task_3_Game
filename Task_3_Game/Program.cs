@@ -30,7 +30,7 @@ namespace Task_3_Game
 				{
 					Environment.Exit(0);
 				}
-				while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+				while (pressKey.Key != ConsoleKey.Enter) { }
 				
 			}
 		}

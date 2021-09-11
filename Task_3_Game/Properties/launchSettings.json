@@ -1,7 +1,8 @@
 {
   "profiles": {
     "Task_3_Game": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "ryry rrt t"
     }
   }
 }
