@@ -61,6 +61,7 @@ namespace Task_3_Game.Data
 			while (!_menu.ContainsKey(inputUserMove))
 			{
 				Console.WriteLine("You entered incorrect move. Try agan");
+				Console.WriteLine("Enter your move");
 				inputUserMove = Console.ReadLine();
 			}
 			ExecuteUserChoice(inputUserMove);
