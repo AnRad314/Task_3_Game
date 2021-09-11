@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Task_3_Game.Data
+﻿namespace Task_3_Game.Data
 {
 	public static class Rule
 	{
